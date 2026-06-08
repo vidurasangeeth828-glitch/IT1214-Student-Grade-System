@@ -17,13 +17,16 @@ class Main{
             System.out.print("Enter your choice ,Enter a number (1-5):");
 			choice=sc.nextInt();
 			
+			
 			switch(choice){
 				case 1:
 					addStudent();
 				break;
 				case 2:
+					displayAllStudents();
 				break;
 				case 3:
+					searchById();
 				break;
 				case 4:
 				break;
@@ -39,9 +42,10 @@ class Main{
 		
 }
 		private static void addStudent(){
+				sc.nextLine();
 				System.out.println("Enter Student Id:");
 				String id=sc.nextLine();
-				sc.nextLine();
+				
 				System.out.println("Enter Student Name :");
 				String name=sc.nextLine();
 				System.out.println("Enter Mark :");
@@ -61,6 +65,39 @@ class Main{
 				
 				
 			}
+		private static void displayAllStudents(){
+			if(studentList.isEmpty()){
+				System.out.println("No Records");
+				
+			}else{
+				for(Student i:studentList){
+					i.printStudentDetails();
+				}
+			}
+		}
+		private static void searchById(){
+			
+			if(studentList.isEmpty()){
+				System.out.println("No Records");
+				
+			}else{
+				System.out.println("Enter Student Id For Search Student :");
+				String search=sc.nextLine();
+				boolean found=false;
+				for(Student i:studentList){
+					if(i.getId().equalsIgnoreCase(search)){
+						System.out.println("found");
+						i.printStudentDetails();
+						found=true;
+						break;
+					
+					}
+				}if(!found){
+					
+						System.out.println("No Student found with this Id");
+				}
+			}
+		}
 		
 	
 	

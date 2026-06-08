@@ -4,7 +4,7 @@ class Student{
 	private int marks;
 	
 	
-	Student(String studentID,String studentName,int marks){
+	Student(String studentId,String studentName,int marks){
 		this.studentId=studentId;
 		this.studentName=studentName;
 		this.marks=marks;
@@ -19,7 +19,7 @@ class Student{
 		 return marks;
 	 }
 	 
-	 public void PrintStudentDetails(){
+	 public void printStudentDetails(){
 		 System.out.println("Student ID: " + studentId +
                 ", Student Name: " +studentName+
                 ", Marks: " + marks);
