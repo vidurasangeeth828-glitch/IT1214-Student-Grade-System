@@ -52,16 +52,27 @@ class Main{
 				
 				System.out.println("Enter Student Name :");
 				String name=sc.nextLine();
-				System.out.println("Enter Mark :");
 				int mark;
+				System.out.println("Enter Mark :");
 				
-				while(!sc.hasNextInt()) {
-					System.out.println("Error: Please enter numbers only!");
-					System.out.print("Enter Mark: ");
-					sc.next();
-				
+
+				while (true) {
+
+					while (!sc.hasNextInt()) {
+						System.out.println("Error: Please enter numbers only!");
+						System.out.print("Enter Mark: ");
+						sc.next();
+					}
+
+					mark = sc.nextInt();
+
+					if (mark >= 0 && mark <= 100) {
+						break;
+					}
+
+					System.out.println("Error: Marks must be between 0 and 100!");
 				}
-				mark=sc.nextInt();
+
 				sc.nextLine();
 				
 				studentList.add(new Student(id,name,mark));
@@ -110,7 +121,7 @@ class Main{
 				for(Student s:studentList){
 					sum=sum+s.getMarks();
 				}
-				double avg=(double)(sum/studentList.size());
+				double avg = (double) sum / studentList.size();
 				System.out.println("number of students in records :"+studentList.size());
 				System.out.println("Avarage marks of Students :"+avg);
 			}
