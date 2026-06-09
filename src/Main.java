@@ -2,6 +2,7 @@ import java.util.*;
 class Main{
 	private static ArrayList<Student> studentList=new ArrayList<>();
 	static Scanner sc =new Scanner(System.in);
+	static Scanner sc1 =new Scanner(System.in);
 	
 	public static void main(String[] args){
 		
@@ -29,10 +30,13 @@ class Main{
 					searchById();
 				break;
 				case 4:
+					calculateAvarage();
 				break;
 				case 5:
+					System.out.println("Good Bye..Exiting ");
 				break;
 				default:
+					System.out.println("Invalid choice");
 				break;
 			}
 			
@@ -82,7 +86,7 @@ class Main{
 				
 			}else{
 				System.out.println("Enter Student Id For Search Student :");
-				String search=sc.nextLine();
+				String search=sc1.nextLine();
 				boolean found=false;
 				for(Student i:studentList){
 					if(i.getId().equalsIgnoreCase(search)){
@@ -96,6 +100,19 @@ class Main{
 					
 						System.out.println("No Student found with this Id");
 				}
+			}
+		}
+		private static void calculateAvarage(){
+			int sum=0;
+			if(studentList.isEmpty()){
+				System.out.println("No Records");
+			}else{
+				for(Student s:studentList){
+					sum=sum+s.getMarks();
+				}
+				double avg=(double)(sum/studentList.size());
+				System.out.println("number of students in records :"+studentList.size());
+				System.out.println("Avarage marks of Students :"+avg);
 			}
 		}
 		
