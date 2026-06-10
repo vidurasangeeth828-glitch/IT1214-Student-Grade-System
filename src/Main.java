@@ -30,7 +30,7 @@ class Main{
 					searchById();
 				break;
 				case 4:
-					calculateAvarage();
+					calculateAverage();
 				break;
 				case 5:
 					System.out.println("Good Bye..Exiting ");
@@ -101,7 +101,7 @@ class Main{
 				boolean found=false;
 				for(Student i:studentList){
 					if(i.getId().equalsIgnoreCase(search)){
-						System.out.println("found");
+						System.out.println("Student found");
 						i.printStudentDetails();
 						found=true;
 						break;
@@ -113,7 +113,7 @@ class Main{
 				}
 			}
 		}
-		private static void calculateAvarage(){
+		private static void calculateAverage(){
 			int sum=0;
 			if(studentList.isEmpty()){
 				System.out.println("No Records");
@@ -123,7 +123,7 @@ class Main{
 				}
 				double avg = (double) sum / studentList.size();
 				System.out.println("number of students in records :"+studentList.size());
-				System.out.println("Avarage marks of Students :"+avg);
+				System.out.println("Average marks of Students :"+avg);
 			}
 		}
 		
@@ -132,3 +132,4 @@ class Main{
 	
 	
 }
+//tested and finalized
